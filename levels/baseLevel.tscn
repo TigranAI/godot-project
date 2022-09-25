@@ -1,0 +1,156 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20.7288, 21.4396 )
+
+[node name="baseLevel" type="Node2D"]
+
+[node name="background" type="ColorRect" parent="."]
+margin_left = -307.0
+margin_top = 14.0
+margin_right = 2499.0
+margin_bottom = 1696.0
+rect_pivot_offset = Vector2( -1915, -908 )
+color = Color( 1, 0.937255, 0.784314, 1 )
+
+[node name="walls" type="ColorRect" parent="background"]
+margin_right = 1027.0
+margin_bottom = 596.0
+rect_scale = Vector2( 1, 0.8 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/walls"]
+position = Vector2( 2.28688, -5.89511 )
+scale = Vector2( 1.26843, 1.70762 )
+polygon = PoolVector2Array( 809, 352, 2.4654, 351.903, -2, 6, 812, 1 )
+
+[node name="walls2" type="ColorRect" parent="background"]
+margin_left = -6.0
+margin_top = 1236.0
+margin_right = 1020.0
+margin_bottom = 1849.0
+rect_scale = Vector2( 1, 0.719999 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/walls2"]
+position = Vector2( 1.20744, -9.62361 )
+scale = Vector2( 1.25998, 1.74858 )
+polygon = PoolVector2Array( 809, 352, 2.4654, 351.903, -2, 6, 812, 1 )
+
+[node name="walls3" type="ColorRect" parent="background"]
+margin_left = 1778.0
+margin_top = 1325.0
+margin_right = 2805.0
+margin_bottom = 1921.0
+rect_scale = Vector2( 1, 0.599999 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/walls3"]
+position = Vector2( 2.28688, -5.89511 )
+scale = Vector2( 1.26843, 1.70762 )
+polygon = PoolVector2Array( 809, 352, 2.4654, 351.903, -2, 6, 812, 1 )
+
+[node name="walls4" type="ColorRect" parent="background"]
+margin_left = 1777.0
+margin_top = 6.0
+margin_right = 2803.0
+margin_bottom = 619.0
+rect_scale = Vector2( 1, 0.72 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/walls4"]
+position = Vector2( 1.20744, -9.62361 )
+scale = Vector2( 1.25998, 1.74858 )
+polygon = PoolVector2Array( 809, 352, 2.4654, 351.903, -2, 6, 812, 1 )
+
+[node name="main" type="ColorRect" parent="background"]
+margin_left = 1344.0
+margin_top = 831.0
+margin_right = 1384.0
+margin_bottom = 871.0
+rect_scale = Vector2( 2.96474, 2.75401 )
+color = Color( 0.992157, 0.976471, 0.0313726, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/main"]
+position = Vector2( 20.3223, 20.0103 )
+shape = SubResource( 1 )
+
+[node name="walls5" type="ColorRect" parent="background"]
+margin_left = 1778.0
+margin_top = 438.0
+margin_right = 2805.0
+margin_bottom = 1034.0
+rect_scale = Vector2( 0.760325, 1.26289 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/walls5"]
+position = Vector2( 2.28688, -5.89511 )
+scale = Vector2( 1.26843, 1.70762 )
+polygon = PoolVector2Array( 809, 352, 2.4654, 351.903, -2, 6, 812, 1 )
+
+[node name="walls6" type="ColorRect" parent="background"]
+margin_left = 253.0
+margin_top = 687.0
+margin_right = 1280.0
+margin_bottom = 1283.0
+rect_scale = Vector2( 0.745079, 0.926705 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/walls6"]
+position = Vector2( 2.28688, -5.89511 )
+scale = Vector2( 1.26843, 1.70762 )
+polygon = PoolVector2Array( 809, 352, 2.4654, 351.903, -2, 6, 812, 1 )
+
+[node name="walls7" type="ColorRect" parent="background"]
+margin_left = 1300.0
+margin_top = 1331.0
+margin_right = 2326.0
+margin_bottom = 1944.0
+rect_scale = Vector2( 0.475771, 0.32775 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/walls7"]
+position = Vector2( 1.20744, -9.62361 )
+scale = Vector2( 1.25998, 1.74858 )
+polygon = PoolVector2Array( 809, 352, 2.4654, 351.903, -2, 6, 812, 1 )
+
+[node name="walls8" type="ColorRect" parent="background"]
+margin_left = 1023.0
+margin_top = 274.0
+margin_right = 2049.0
+margin_bottom = 887.0
+rect_scale = Vector2( 0.475771, 0.32775 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/walls8"]
+position = Vector2( 1.20744, -9.62361 )
+scale = Vector2( 1.25998, 1.74858 )
+polygon = PoolVector2Array( 809, 352, 2.4654, 351.903, -2, 6, 812, 1 )
+
+[node name="let1" type="ColorRect" parent="background"]
+margin_left = 1188.0
+margin_top = 799.0
+margin_right = 2214.0
+margin_bottom = 1412.0
+rect_rotation = -52.4688
+rect_scale = Vector2( 0.221882, -0.108883 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/let1"]
+position = Vector2( 1.85329, -9.62361 )
+scale = Vector2( 1.2626, 1.74858 )
+polygon = PoolVector2Array( 809, 352, 2.4654, 351.903, -2, 6, 812, 1 )
+
+[node name="let2" type="ColorRect" parent="background"]
+margin_left = 1559.0
+margin_top = 1165.0
+margin_right = 2585.0
+margin_bottom = 1778.0
+rect_rotation = -52.4688
+rect_scale = Vector2( 0.221882, -0.108883 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/let2"]
+position = Vector2( 1.20744, -9.62361 )
+scale = Vector2( 1.25998, 1.74858 )
+polygon = PoolVector2Array( 809, 352, 2.4654, 351.903, -2, 6, 812, 1 )
