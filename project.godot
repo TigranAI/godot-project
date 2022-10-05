@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Godot-project"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/BaseScene.tscn"
 config/icon="res://icon.png"
 
 [gui]
