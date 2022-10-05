@@ -10,7 +10,7 @@ width = 32
 
 [sub_resource type="RectangleShape2D" id=3]
 
-[node name="SimpleTarget" type="KinematicBody2D"]
+[node name="SimpleTarget" type="KinematicBody2D" groups=["EndPoint"]]
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 7.15256e-07, 2.38419e-07 )
