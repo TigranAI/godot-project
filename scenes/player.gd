@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export (int) var speed = 200
 export (int) var attack_speed = 200
+export (int) var hp = 10;
 onready var _animated_sprite = $AnimatedSprite
 onready var _weapon_area = $Weapon
 onready var _weapon_collision = $Weapon/CollisionShape2D
@@ -9,17 +10,17 @@ var velocity = Vector2()
 var last_direction = "down";
 var attack = false;
 var start_attack_angle=0;
-var hp = 10;
 var is_dead = false
-
+var bounce_velocity = 0; 
 
 
 func _ready():
 	_weapon_area.hide();
+	$HUD/Hp_bar._on_max_health_updated(hp)
+	$HUD/Hp_bar._on_health_updated(hp)
 
 #player walk input
 func get_input():
-	
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_down"):
 		velocity.y+=1
@@ -62,7 +63,9 @@ func _physics_process(_delta):
 	get_input()
 	if attack: 
 		weapon_attack(_delta);
-		
+	if velocity != Vector2.ZERO: 
+		print (velocity);
+	if bounce_velocity != Vector2.ZERO; 
 	
 	velocity = move_and_slide(velocity * _delta)
 	
@@ -103,9 +106,11 @@ func _process(_delta):
 	_move_animation()
 	
 	
-func take_damage(damage):
+func take_damage(damage, bounce):
 	hp-=damage;
-	print (hp)
+	$HUD/Hp_bar._on_health_updated(hp);
+	
+	print(velocity)
 	if hp <= 0:
 		is_dead = true;
 
