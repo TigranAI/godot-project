@@ -3,6 +3,5 @@ extends Node2D
 onready var target = $SimpleTarget
 onready var nav = $Navigation2D
 
-
-func _on_Timer_timeout():
-	get_tree().call_group("TestEnemyGroup", 'get_target_path', target.global_position)
+func get_path_to_target(from):
+	return nav.get_simple_path(from, target.global_position, false)
