@@ -10,3 +10,5 @@ func spawn_enemy() -> void:
 	var enemy = enemyScene.instance()
 	enemy.initialize(global_position, owner.get_path_to_target(global_position))
 	owner.add_child(enemy)
+
+
