@@ -11,8 +11,16 @@ config_version=4
 [application]
 
 config/name="Godot-project"
-run/main_scene="res://levels/baseLevel.tscn"
+run/main_scene="res://scenes/menu/main_menu/MainMenu.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[global]
+
+stretch=false
 
 [gui]
 

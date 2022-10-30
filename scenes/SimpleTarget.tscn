@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12, 12 )
+extents = Vector2( 32, 64 )
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.0052356, 0.0209424, 0.026178, 0.0314136 )
-colors = PoolColorArray( 0, 0, 0, 1, 0.324607, 0.324607, 0.324607, 1, 1, 1, 1, 1, 0.900468, 0.900468, 0.900468, 1, 0.947559, 0.947559, 0.947559, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.324607, 0.324607, 0.324607, 1, 1, 1, 1, 1, 0.900468, 0.900468, 0.900468, 1, 0.94902, 0.94902, 0.94902, 0 )
 
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )
@@ -13,10 +13,9 @@ gradient = SubResource( 2 )
 [node name="SimpleTarget" type="KinematicBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 307, 499 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 307, 499 )
+position = Vector2( 4.76837e-07, 3.63798e-12 )
 scale = Vector2( 0.0117187, 24 )
 texture = SubResource( 3 )
