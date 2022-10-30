@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tower 05.png-b8544c17d1a4aae82b67b3e7215bb345.stex"
+path="res://.import/icon.png-bf0a2025b1d822b5150727a39b8d1f19.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Foozle_2DS0019_Spire_TowerPack_3/Towers bases/PNGs/Tower 05.png"
-dest_files=[ "res://.import/Tower 05.png-b8544c17d1a4aae82b67b3e7215bb345.stex" ]
+source_file="res://scenes/Tower/icon.png"
+dest_files=[ "res://.import/icon.png-bf0a2025b1d822b5150727a39b8d1f19.stex" ]
 
 [params]
 

@@ -32,13 +32,17 @@ func select_enemy():
 
 func fire():
 	ready = false
+	enemy.receive_damge(self, 10)	
+	yield(get_tree().create_timer(2), "timeout") 
 	#enemy.on_hit(GameData.tower_data[type]["damdge"]) Берем урон из общего скрипта для башень
 	#yield(get_tree().create_timer(GameData.tower_data[type]["rof"]), "timeout") Как я понял, частота стрельбы из того же скрипта башень
 	ready = true
 
 func _on_Range_body_entered(body):
-	enemy_array.append(body.get_parent())
+	print("some_enter")
+	enemy_array.append(body)
 
 
 func _on_Range_body_exited(body):
-	enemy_array.erase(body.get_parent())
+	print("exited")
+	enemy_array.erase(body)

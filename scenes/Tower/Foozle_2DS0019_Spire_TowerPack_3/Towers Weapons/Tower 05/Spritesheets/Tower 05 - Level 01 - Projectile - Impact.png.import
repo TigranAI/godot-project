@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tower 05 - Level 01 - Projectile - Impact.png-21328eb3280d7ae2755da3d8dcc29514.stex"
+path="res://.import/Tower 05 - Level 01 - Projectile - Impact.png-95b386d55142ff9d0c25cea2b4282a34.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Foozle_2DS0019_Spire_TowerPack_3/Towers Weapons/Tower 05/Spritesheets/Tower 05 - Level 01 - Projectile - Impact.png"
-dest_files=[ "res://.import/Tower 05 - Level 01 - Projectile - Impact.png-21328eb3280d7ae2755da3d8dcc29514.stex" ]
+source_file="res://scenes/Tower/Foozle_2DS0019_Spire_TowerPack_3/Towers Weapons/Tower 05/Spritesheets/Tower 05 - Level 01 - Projectile - Impact.png"
+dest_files=[ "res://.import/Tower 05 - Level 01 - Projectile - Impact.png-95b386d55142ff9d0c25cea2b4282a34.stex" ]
 
 [params]
 
