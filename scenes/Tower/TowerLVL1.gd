@@ -40,11 +40,9 @@ func fire():
 	ready = true
 
 func _on_Range_body_entered(body):
-	print("some_enter")
 	if body.is_in_group("TestEnemyGroup"):
 		enemy_array.append(body)
 
 
 func _on_Range_body_exited(body):
-	print("exited")
 	enemy_array.erase(body)
