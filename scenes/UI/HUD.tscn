@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/UI/Hp_bar.tscn" type="PackedScene" id=1]
-
+[ext_resource path="res://scenes/menu/pause_menu/PauseMenu.tscn" type="PackedScene" id=2]
 
 [node name="HUD" type="CanvasLayer"]
+
+[node name="PauseMenu" parent="." instance=ExtResource( 2 )]
+visible = false
 
 [node name="Hp_bar" parent="." instance=ExtResource( 1 )]
