@@ -1,6 +1,6 @@
 extends Control
 
-export (String, FILE, "*.tscn,*.scn") var levelScene = "res://scenes/enemies/EnemyTestScene.tscn"
+export (String, FILE, "*.tscn,*.scn") var levelScene = "res://levels/baseLevel.tscn"
 
 onready var options = $Options
 

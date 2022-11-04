@@ -247,6 +247,7 @@ position = Vector2( 0, 0.5 )
 scale = Vector2( 1, 1.0625 )
 frames = SubResource( 19 )
 animation = "idle_down"
+frame = 2
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
