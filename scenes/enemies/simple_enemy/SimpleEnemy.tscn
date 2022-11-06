@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/enemies/simple_enemy/SimpleEnemy.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://scenes/enemies/simple_enemy/SimpleEnemy.gd" type="Script" id=2]
+[ext_resource path="res://scenes/UI/Hp_bar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 19.0
@@ -21,7 +22,6 @@ damage = 2
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
-frame = 2
 playing = true
 
 [node name="Body" type="CollisionShape2D" parent="."]
@@ -36,6 +36,13 @@ shape = SubResource( 2 )
 
 [node name="TriggerBody" type="CollisionShape2D" parent="EndPointTriger"]
 shape = SubResource( 3 )
+
+[node name="Hp_bar" parent="." instance=ExtResource( 3 )]
+margin_left = -29.0
+margin_top = -40.0
+margin_right = 367.0
+margin_bottom = 13.0
+rect_scale = Vector2( 0.15, 0.15 )
 
 [connection signal="body_entered" from="AttackRange" to="." method="on_player_in_range"]
 [connection signal="body_entered" from="EndPointTriger" to="." method="on_end_point_in_range"]

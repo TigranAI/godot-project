@@ -11,7 +11,7 @@ var last_direction = "down";
 var attack = false;
 var start_attack_angle=0;
 var is_dead = false
-var bounce_velocity = 0; 
+var bounce_velocity = Vector2.ZERO; 
 var is_idle = true;
 
 func _ready():
@@ -38,7 +38,7 @@ func get_input():
 		attack = true;
 		weapon_aread_origin();
 		
-	velocity = velocity.normalized() * speed
+	velocity = velocity.normalized() * speed ;
 
 func weapon_aread_origin():
 	_weapon_area.show()
@@ -66,10 +66,15 @@ func _physics_process(_delta):
 	get_input()
 	if attack: 
 		weapon_attack();
-	if velocity != Vector2.ZERO: 
-		print (velocity);
-	#if bounce_velocity != Vector2.ZERO; 
+#	if velocity != Vector2.ZERO: 
+#		print (velocity);
 	
+	
+	
+	if bounce_velocity.length() >= 2:
+		bounce_velocity += bounce_velocity.normalized() * -200;
+		velocity = move_and_slide(bounce_velocity)
+		return;
 	velocity = move_and_slide(velocity)
 	
 func weapon_attack():
@@ -131,12 +136,14 @@ func _process(_delta):
 func receive_damage(from, damage):
 	hp-=damage;
 	$HUD/Hp_bar._on_health_updated(hp);
+	bounce_velocity = global_position.direction_to(from.global_position) * -1000;
 	
-	print(velocity)
 	if hp <= 0:
 		is_dead = true;
 
 func _on_Weapon_body_entered(body:Node2D):
+	if !attack:
+		return;
 	if body.has_method("receive_damage"):
 		body.receive_damage(self, 2);
 	pass 
