@@ -11,7 +11,6 @@ func _ready():
 
 func _physics_process(delta):
 	if enemy_array.size() != 0 :
-		print()
 		enemy = enemy_array[0]
 		turn()
 		if ready:
@@ -31,7 +30,6 @@ func select_enemy():
 	enemy = enemy_array[enemy_index]
 
 func fire():
-	print("good")
 	ready = false
 	enemy.receive_damage(self, 5)	
 	yield(get_tree().create_timer(1), "timeout") 
@@ -42,7 +40,6 @@ func fire():
 func _on_Range_body_entered(body):
 	if body.is_in_group("TestEnemyGroup"):
 		enemy_array.append(body)
-
 
 func _on_Range_body_exited(body):
 	enemy_array.erase(body)

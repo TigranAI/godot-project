@@ -17,5 +17,4 @@ func take_damage(damage):
 func _on_DamageArea_body_entered(body:Node2D):
 	if body.has_method("take_damage"):
 		bounce_velocity =  -0.2 * global_position.direction_to(body.global_position);
-		print (bounce_velocity);
 		body.take_damage(2,bounce_velocity);
