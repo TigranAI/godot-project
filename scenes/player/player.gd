@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal playerDead;
+
 export (int) var speed = 200
 export (int) var attack_speed = 200
 export (int) var hp = 10;
@@ -18,6 +20,7 @@ func _ready():
 	_weapon_area.hide();
 	$HUD/Hp_bar._on_max_health_updated(hp)
 	$HUD/Hp_bar._on_health_updated(hp)
+	#$HUD/DeathMenu.connect("playerDead", $HUD/DeathMenu, "show_death_screen")
 
 #player walk input
 func get_input():
@@ -67,7 +70,7 @@ func _physics_process(_delta):
 	if attack: 
 		weapon_attack();
 	if velocity != Vector2.ZERO: 
-		print (velocity);
+		pass#print (velocity);
 	#if bounce_velocity != Vector2.ZERO; 
 	
 	velocity = move_and_slide(velocity)
@@ -132,9 +135,10 @@ func receive_damage(from, damage):
 	hp-=damage;
 	$HUD/Hp_bar._on_health_updated(hp);
 	
-	print(velocity)
-	if hp <= 0:
+	#print(velocity)
+	if hp <= 0 and !is_dead:
 		is_dead = true;
+		emit_signal("playerDead")
 
 func _on_Weapon_body_entered(body:Node2D):
 	if body.has_method("receive_damage"):
