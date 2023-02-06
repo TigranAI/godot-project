@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal playerDead;
+
 export (int) var speed = 200
 export (int) var attack_speed = 200
 export (int) var hp = 10;
@@ -11,13 +13,14 @@ var last_direction = "down";
 var attack = false;
 var start_attack_angle=0;
 var is_dead = false
-var bounce_velocity = Vector2.ZERO; 
+var bounce_velocity = Vector2.ZERO;
 var is_idle = true;
 
 func _ready():
 	_weapon_area.hide();
 	$HUD/Hp_bar._on_max_health_updated(hp)
 	$HUD/Hp_bar._on_health_updated(hp)
+	#$HUD/DeathMenu.connect("playerDead", $HUD/DeathMenu, "show_death_screen")
 
 #player walk input
 func get_input():
@@ -38,7 +41,7 @@ func get_input():
 		attack = true;
 		weapon_aread_origin();
 		
-	velocity = velocity.normalized() * speed ;
+	velocity = velocity.normalized() * speed;
 
 func weapon_aread_origin():
 	_weapon_area.show()
@@ -66,11 +69,11 @@ func _physics_process(_delta):
 	get_input()
 	if attack: 
 		weapon_attack();
-#	if velocity != Vector2.ZERO: 
+#	if velocity != Vector2.ZERO:
 #		print (velocity);
+
 	
-	
-	
+
 	if bounce_velocity.length() >= 2:
 		bounce_velocity += bounce_velocity.normalized() * -200;
 		velocity = move_and_slide(bounce_velocity)
@@ -137,9 +140,10 @@ func receive_damage(from, damage):
 	hp-=damage;
 	$HUD/Hp_bar._on_health_updated(hp);
 	bounce_velocity = global_position.direction_to(from.global_position) * -1000;
-	
-	if hp <= 0:
+
+	if hp <= 0 and !is_dead:
 		is_dead = true;
+		emit_signal("playerDead")
 
 func _on_Weapon_body_entered(body:Node2D):
 	if !attack:
