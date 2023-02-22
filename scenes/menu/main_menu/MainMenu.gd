@@ -2,13 +2,18 @@ extends Control
 
 export (String, FILE, "*.tscn,*.scn") var levelScene = "res://levels/baseLevel.tscn"
 
-onready var options = $Options
+signal gameStarted
+signal gameResumed
+signal optionsPressed
 
 func _on_Start_pressed() -> void:
-	get_tree().change_scene(levelScene)
+	emit_signal("gameStarted")
 
 func _on_Options_pressed() -> void:
-	options.show()
+	emit_signal("optionsPressed")
 
 func _on_Exit_pressed() -> void:
 	get_tree().quit()
+
+func _on_Resume_pressed():
+	emit_signal("gameResumed")

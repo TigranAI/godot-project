@@ -151,3 +151,23 @@ func _on_Weapon_body_entered(body:Node2D):
 	if body.has_method("receive_damage"):
 		body.receive_damage(self, 2);
 	pass 
+
+func _save() -> Dictionary:
+	return {
+		"filename" : get_filename(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x,
+		"pos_y" : position.y,
+		"speed" : speed,
+		"attack_speed" : attack_speed,
+		"hp" : hp,
+		"is_dead" : is_dead
+	}
+
+func _load_from(dict: Dictionary):
+	position.x = dict["pos_x"]
+	position.y = dict["pos_y"]
+	speed = dict["speed"]
+	attack_speed = dict["attack_speed"]
+	hp = dict["hp"]
+	is_dead = dict["is_dead"]

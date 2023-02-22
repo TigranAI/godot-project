@@ -1,6 +1,6 @@
 extends Control
 
-const SAVE_PATH = "res://settings.cfg"
+export(String, FILE, ".cfg") var saveFilePath = "res://settings.cfg"
 
 var _config_file = ConfigFile.new()
 var _settings = {}
@@ -16,10 +16,10 @@ func save_settings() -> void:
 		for key in _settings[section]:
 			_config_file.set_value(section, key, _settings[section][key])
 	
-	_config_file.save(SAVE_PATH)
+	_config_file.save(saveFilePath)
 
 func load_settings() -> void:
-	var code = _config_file.load(SAVE_PATH)
+	var code = _config_file.load(saveFilePath)
 	if code != OK:
 		_settings = get_default_settings()
 	else:
@@ -49,3 +49,6 @@ func _on_Button_pressed() -> void:
 
 func _on_video_value_updated(key: String, value) -> void:
 	set_value("video", key, value)
+
+func _on_show_settings():
+	visible = true

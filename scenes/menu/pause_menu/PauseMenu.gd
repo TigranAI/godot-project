@@ -2,32 +2,38 @@ extends Control
 
 export (String, FILE, "*.tscn,*.scn") var menuScene = "res://scenes/menu/main_menu/MainMenu.tscn"
 
-onready var options = $Options
+signal gameExit
+signal showSettings
+signal resume
+signal pause
+signal restart
 
-var is_paused = false setget set_is_paused
-onready var player = get_parent().get_parent()
+var is_paused = false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause") && !player.is_dead:
-		self.is_paused = !is_paused
+	if event.is_action_pressed("pause"):
+		set_paused(!is_paused)
 
-func set_is_paused(value):
-	options.hide()
+func set_paused(value: bool):
 	is_paused = value
 	get_tree().paused = is_paused
-	visible = is_paused
+	
+	if value: emit_signal("pause")
+	else: emit_signal("resume")
+	
+	visible = value
 
 func _on_Resume_pressed() -> void:
-	self.is_paused = false
+	set_paused(false)
 
 func _on_Settings_pressed() -> void:
-	options.show()
+	emit_signal("showSettings")
 
 func _on_Exit_pressed() -> void:
-	self.is_paused = false
-	get_tree().change_scene(menuScene)
-
+	set_paused(false)
+	emit_signal("gameExit")
 
 func _on_Restart_pressed() -> void:
-	self.is_paused = false
-	get_tree().reload_current_scene()
+	set_paused(false)
+	emit_signal("restart")
+
