@@ -20,14 +20,16 @@ anchor_bottom = 1.0
 pause_mode = 1
 visible = false
 
-[node name="PauseMenu" parent="." instance=ExtResource( 6 )]
-pause_mode = 0
-visible = false
-
 [node name="OptionsMenu" parent="." instance=ExtResource( 4 )]
 visible = false
 
-[node name="DeathMenu" parent="." instance=ExtResource( 5 )]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 6 )]
+pause_mode = 0
+visible = false
+
+[node name="DeathMenu" parent="CanvasLayer" instance=ExtResource( 5 )]
 pause_mode = 0
 visible = false
 
@@ -35,9 +37,9 @@ visible = false
 [connection signal="gameStarted" from="MainMenu" to="GameScene" method="_on_game_started"]
 [connection signal="optionsPressed" from="MainMenu" to="OptionsMenu" method="_on_show_settings"]
 [connection signal="onLevelResumed" from="GameScene" to="SaveController" method="_on_level_resumed"]
-[connection signal="gameExit" from="PauseMenu" to="SaveController" method="_on_PauseMenu_gameExit"]
-[connection signal="gameExit" from="PauseMenu" to="GameScene" method="_on_game_exit"]
-[connection signal="pause" from="PauseMenu" to="GameScene" method="_on_pause"]
-[connection signal="restart" from="PauseMenu" to="GameScene" method="_on_restart"]
-[connection signal="resume" from="PauseMenu" to="GameScene" method="_on_unpaused"]
-[connection signal="showSettings" from="PauseMenu" to="OptionsMenu" method="_on_show_settings"]
+[connection signal="gameExit" from="CanvasLayer/PauseMenu" to="SaveController" method="_on_PauseMenu_gameExit"]
+[connection signal="gameExit" from="CanvasLayer/PauseMenu" to="GameScene" method="_on_game_exit"]
+[connection signal="pause" from="CanvasLayer/PauseMenu" to="GameScene" method="_on_pause"]
+[connection signal="restart" from="CanvasLayer/PauseMenu" to="GameScene" method="_on_restart"]
+[connection signal="resume" from="CanvasLayer/PauseMenu" to="GameScene" method="_on_unpaused"]
+[connection signal="showSettings" from="CanvasLayer/PauseMenu" to="OptionsMenu" method="_on_show_settings"]
