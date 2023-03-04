@@ -4,13 +4,13 @@ export var speed = 100
 export var threshold = 16
 export var hp = 300
 export var damage = 10
+export var experiencePool = 50;
 
 var path = []
 var velocity = Vector2.ZERO
 var bounce_velocity = Vector2.ZERO
 var current_hp = hp
 
-var experiencePool = 100;
 
 func initialize(pos, pth) -> void:
 	path = pth
@@ -41,8 +41,8 @@ func receive_damage(from, value):
 	bounce_velocity = global_position.direction_to(from.global_position) * -1000;
 	$Hp_bar._on_health_updated(hp);
 	if hp <= 0:
-		if from.is_in_group("Player"):
-			from.get_exp(experiencePool)
+		for player in get_tree().get_nodes_in_group("Player"):
+			player.get_exp(experiencePool)
 		queue_free()
 
 func on_player_in_range(body: Node) -> void:

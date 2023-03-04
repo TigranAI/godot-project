@@ -5,8 +5,14 @@
 [ext_resource path="res://scenes/UI/Hp_bar.gd" type="Script" id=3]
 
 [node name="Hp_bar" type="TextureProgress"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 2.0
+margin_right = 398.0
+margin_bottom = 53.0
+grow_horizontal = 2
+size_flags_horizontal = 15
+size_flags_vertical = 15
+size_flags_stretch_ratio = 0.0
 texture_under = ExtResource( 1 )
 texture_progress = ExtResource( 2 )
+nine_patch_stretch = true
 script = ExtResource( 3 )

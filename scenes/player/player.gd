@@ -5,6 +5,9 @@ signal playerDead;
 export (int) var speed = 200
 export (int) var attack_speed = 200
 export (int) var hp = 10;
+export (int) var current_exp = 0;
+export (int) var lv = 1; 
+export (int) var next_lv_exp = 100
 onready var _animated_sprite = $AnimatedSprite
 onready var _weapon_area = $Weapon
 onready var _weapon_collision = $Weapon/CollisionShape2D
@@ -16,10 +19,15 @@ var is_dead = false
 var bounce_velocity = Vector2.ZERO;
 var is_idle = true;
 
+
+
 func _ready():
 	_weapon_area.hide();
-	$HUD/Hp_bar._on_max_health_updated(hp)
-	$HUD/Hp_bar._on_health_updated(hp)
+	$HUD/HBoxContainer/Hp_bar._on_max_health_updated(hp)
+	$HUD/HBoxContainer/Hp_bar._on_health_updated(hp)
+	$HUD/HBoxContainer/Lv._on_lv_updated(lv)
+	$HUD/Ex_bar._on_exp_updated(current_exp)
+	$HUD/Ex_bar._on_next_exp_updated(next_lv_exp)
 	#$HUD/DeathMenu.connect("playerDead", $HUD/DeathMenu, "show_death_screen")
 
 #player walk input
@@ -138,7 +146,7 @@ func _process(_delta):
 	
 func receive_damage(from, damage):
 	hp-=damage;
-	$HUD/Hp_bar._on_health_updated(hp);
+	$HUD/HBoxContainer/Hp_bar._on_health_updated(hp);
 	bounce_velocity = global_position.direction_to(from.global_position) * -1000;
 
 	if hp <= 0 and !is_dead:
@@ -149,3 +157,19 @@ func _on_Weapon_body_entered(body:Node2D):
 	if body.has_method("receive_damage"):
 		body.receive_damage(self, 2);
 	pass 
+	
+func get_exp(ex):
+	current_exp += ex
+	print(current_exp)
+	if current_exp >= next_lv_exp: 
+		lv+=1
+		current_exp -= next_lv_exp
+		next_lv_exp *= 12
+		next_lv_exp /= 10
+		$HUD/Ex_bar._on_next_exp_updated(next_lv_exp)
+		$HUD/HBoxContainer/Lv._on_lv_updated(lv)
+	$HUD/Ex_bar._on_exp_updated(current_exp)
+	
+	
+	
+	
