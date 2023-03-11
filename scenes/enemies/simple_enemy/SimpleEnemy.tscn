@@ -14,7 +14,7 @@ radius = 30.0167
 [sub_resource type="CircleShape2D" id=3]
 radius = 30.0666
 
-[node name="SimpleEnemy" type="KinematicBody2D" groups=["TestEnemyGroup"]]
+[node name="SimpleEnemy" type="KinematicBody2D" groups=["Enemies"]]
 collision_layer = 4
 script = ExtResource( 2 )
 hp = 10
@@ -22,6 +22,7 @@ damage = 2
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
+frame = 2
 playing = true
 
 [node name="Body" type="CollisionShape2D" parent="."]

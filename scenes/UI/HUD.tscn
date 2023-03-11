@@ -1,10 +1,29 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/UI/Hp_bar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/menu/pause_menu/PauseMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/menu/death_menu/DeathMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/UI/Exp_bar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/UI/lv.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/active/characters/skills/sword_3.png" type="Texture" id=6]
+[ext_resource path="res://assets/active/characters/skills/sword_1.png" type="Texture" id=7]
+[ext_resource path="res://assets/active/characters/skills/sword_2.png" type="Texture" id=8]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.363128, 0.949721 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+fill_from = Vector2( 0.820833, 0.270833 )
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.597765, 0.98324 )
+colors = PoolColorArray( 0.925781, 0.629242, 0, 1, 1, 1, 1, 1, 0.929688, 0.721864, 0.0123958, 1 )
+
+[sub_resource type="GradientTexture2D" id=4]
+gradient = SubResource( 3 )
+fill_from = Vector2( 0.329167, 0.5125 )
+fill_to = Vector2( 0.925, 0.0625 )
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -13,12 +32,6 @@ visible = false
 
 [node name="DeathMenu" parent="." instance=ExtResource( 3 )]
 visible = false
-
-[node name="Ex_bar" parent="." instance=ExtResource( 4 )]
-anchor_top = 1.0
-margin_top = -12.0
-margin_right = 0.0
-margin_bottom = 0.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_right = 260.0
@@ -31,3 +44,76 @@ rect_min_size = Vector2( 40, 40 )
 margin_left = 44.0
 margin_right = 260.0
 margin_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -53.0
+alignment = 2
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SkilBarBackground" type="TextureRect" parent="VBoxContainer/Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = -64.0
+margin_right = 128.0
+texture = SubResource( 2 )
+expand = true
+stretch_mode = 2
+
+[node name="ActiveBorder" type="TextureRect" parent="VBoxContainer/Control/SkilBarBackground"]
+margin_right = 64.0
+margin_bottom = 64.0
+texture = SubResource( 4 )
+expand = true
+
+[node name="Control" type="HBoxContainer" parent="VBoxContainer/Control/SkilBarBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -126.0
+margin_top = -30.0
+margin_right = 126.0
+margin_bottom = 30.0
+custom_constants/separation = 4
+
+[node name="Skill1" type="TextureRect" parent="VBoxContainer/Control/SkilBarBackground/Control"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 0 )
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Skill3" type="TextureRect" parent="VBoxContainer/Control/SkilBarBackground/Control"]
+margin_left = 64.0
+margin_right = 124.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 0 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Skill2" type="TextureRect" parent="VBoxContainer/Control/SkilBarBackground/Control"]
+margin_left = 128.0
+margin_right = 188.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 0 )
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Ex_bar" parent="VBoxContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 38.0
+margin_right = 1024.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 0, 15 )

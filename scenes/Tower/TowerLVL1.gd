@@ -9,7 +9,7 @@ func _ready():
 	if built:
 		self.get_node("Range/CollisionShape2D").get_shape().radius = 0.5 * 300 #GameData.tower_data[self.get_name()]["range"] Нужно брать радиус из общего скрипта для башень
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if enemy_array.size() != 0 :
 		enemy = enemy_array[0]
 		turn()
