@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/player/sword.gd" type="Script" id=1]
+[ext_resource path="res://scenes/player/Sword.gd" type="Script" id=1]
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 1 )
@@ -27,6 +27,8 @@ scale = Vector2( 0.376035, 0.0351563 )
 texture = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color( 0.898039, 0.486275, 0.486275, 1 )
+self_modulate = Color( 0.870588, 0.109804, 0.109804, 1 )
 position = Vector2( -2.16961e-05, -6 )
 shape = SubResource( 1 )
 

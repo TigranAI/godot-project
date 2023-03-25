@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://scenes/UI/Hp_bar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/UI/HPBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/menu/pause_menu/PauseMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/menu/death_menu/DeathMenu.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/UI/Exp_bar.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/UI/lv.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/UI/ExpBar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/UI/LevelInd.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/active/characters/skills/sword_3.png" type="Texture" id=6]
 [ext_resource path="res://assets/active/characters/skills/sword_1.png" type="Texture" id=7]
 [ext_resource path="res://assets/active/characters/skills/sword_2.png" type="Texture" id=8]

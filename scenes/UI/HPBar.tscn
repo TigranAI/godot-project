@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/UI/HPBar.gd" type="Script" id=1]
+[ext_resource path="res://assets/active/ui/lifebar_bg.png" type="Texture" id=2]
+[ext_resource path="res://assets/active/ui/lifebar_fill.png" type="Texture" id=3]
+
+[node name="HpBar" type="TextureProgress"]
+margin_left = 2.0
+margin_right = 398.0
+margin_bottom = 53.0
+grow_horizontal = 2
+size_flags_horizontal = 15
+size_flags_vertical = 15
+size_flags_stretch_ratio = 0.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+nine_patch_stretch = true
+script = ExtResource( 1 )
