@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/UI/ExpBar.gd" type="Script" id=1]
+[ext_resource path="res://assets/active/ui/ProgressBar_02/BarV2_ProgressBar.png" type="Texture" id=2]
+[ext_resource path="res://assets/active/ui/ProgressBar_02/BarV2_Bar.png" type="Texture" id=3]
+
+[node name="ExpBar" type="TextureProgress"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -752.0
+margin_bottom = -579.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
+radial_center_offset = Vector2( 10, 0 )
+nine_patch_stretch = true
+script = ExtResource( 1 )
